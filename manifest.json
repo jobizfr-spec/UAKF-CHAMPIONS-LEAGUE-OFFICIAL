@@ -1,13 +1,26 @@
 {
-  "background_color": "rgb(7, 19, 33)",
-  "description": "Plateforme officielle UAKF Champions League : clubs, joueurs, matchs, classements et actualités.",
-  "dir": "ltr",
-  "display": "standalone",
-  "name": "UAKF OFFICIAL",
-  "orientation": "any",
-  "scope": "/",
-  "short_name": "UAKF",
-  "start_url": "/",
-  "theme_color": "#39ff14",
-  "id": "/UAKF-CHAMPIONS-LEAGUE-OFFICIAL/"
+"name": "UAKF OFFICIAL",
+"short_name": "UAKF",
+"description": "Plateforme officielle UAKF Champions League : clubs, joueurs, matchs, classements et actualités.",
+"start_url": "/UAKF-CHAMPIONS-LEAGUE-OFFICIAL/",
+"scope": "/UAKF-CHAMPIONS-LEAGUE-OFFICIAL/",
+"id": "/UAKF-CHAMPIONS-LEAGUE-OFFICIAL/",
+"display": "standalone",
+"orientation": "any",
+"background_color": "#071321",
+"theme_color": "#39FF14",
+"icons": [
+{
+"src": "launchericon-512x512.png",
+"sizes": "512x512",
+"type": "image/png",
+"purpose": "any"
+},
+{
+"src": "1024.png",
+"sizes": "1024x1024",
+"type": "image/png",
+"purpose": "any"
+}
+]
 }
