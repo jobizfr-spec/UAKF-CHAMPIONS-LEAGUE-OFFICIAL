@@ -1,0 +1,54 @@
+*{box-sizing:border-box}
+:root{--bg:#071321;--panel:#102238;--panel2:#142b43;--green:#39e75f;--green2:#a4ffb2;--text:#f3f7fb;--muted:#9db0c2;--line:#25415b;--danger:#ff6474}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,sans-serif;padding-bottom:86px}
+button,input,select{font:inherit}
+button{cursor:pointer}
+.topbar{display:flex;align-items:center;gap:12px;padding:17px max(16px,calc((100% - 1100px)/2));background:#091a2b;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.brand-mark{font-size:30px}.topbar h1{font-size:15px;letter-spacing:.5px;margin:0}.topbar p{font-size:10px;color:var(--muted);margin:5px 0 0;letter-spacing:1px}.connection-badge{margin-left:auto;font-size:10px;color:var(--green2);white-space:nowrap}
+.container{max-width:1100px;margin:auto;padding:20px 16px 35px}.page{display:none}.page.active{display:block}
+.hero{padding:30px 22px;border:1px solid #24533c;border-radius:18px;background:radial-gradient(circle at 90% 10%,#174b35 0,transparent 40%),linear-gradient(135deg,#102c32,#102238);margin-bottom:28px}
+.eyebrow{font-size:10px;letter-spacing:1.8px;font-weight:bold;color:var(--green);text-transform:uppercase}.hero h2{font-size:clamp(26px,6vw,42px);margin:12px 0}.hero p{color:#c0d0dc;line-height:1.6;max-width:580px}.hero-actions,.form-actions,.admin-shortcuts{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.btn-primary,.btn-secondary,.danger-button{border:0;border-radius:9px;padding:12px 15px;font-weight:bold}.btn-primary{background:var(--green);color:#062012}.btn-secondary{background:#203950;color:var(--text);border:1px solid #36536d}.danger-button{background:#49232e;color:#ffdce1;border:1px solid #82404d}
+.section-title{font-size:19px;margin:25px 0 14px}.section-heading,.page-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}.page-heading{margin-bottom:20px}.page-heading h2{margin:7px 0 0;font-size:27px}.text-button{background:none;border:0;color:var(--green2);font-weight:bold}
+.stats-grid,.admin-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.stat-card{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:16px}.stat-card span{display:block;color:var(--muted);font-size:12px}.stat-card strong{display:block;font-size:28px;margin-top:9px;color:var(--green2)}
+.stack{display:grid;gap:12px}.item-card,.club-card,.player-card,.login-card,.admin-panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px}.club-grid,.player-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.club-card{display:flex;align-items:center;gap:14px;min-width:0}.club-logo{width:76px;height:76px;flex:0 0 76px;border-radius:12px;object-fit:contain;background:#f4f7f8;padding:5px}.club-logo.placeholder{display:grid;place-items:center;color:#0b1b2b;font-size:26px}.club-meta{min-width:0;flex:1}.club-meta h3,.player-info h3{margin:0 0 7px;font-size:17px;overflow-wrap:anywhere}.club-meta p,.player-info p{color:var(--muted);font-size:12px;margin:5px 0}
+.player-card{display:flex;align-items:center;gap:14px;min-width:0}.player-photo{width:104px;height:120px;flex:0 0 104px;object-fit:cover;border-radius:10px;background:#203950}.player-info{min-width:0;flex:1}.player-info h3{color:var(--green2)}.player-number{font-size:12px;color:var(--green);font-weight:bold}
+.card-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.card-actions button{font-size:11px;padding:8px 10px}
+.form-box,.admin-panel{margin:22px 0}.admin-panel h3{margin-top:0}.form-grid{display:grid;gap:11px}.form-grid input,.form-grid select{width:100%;padding:13px;border-radius:9px;border:1px solid #36516a;background:#091a2b;color:var(--text);outline:none}.form-grid input:focus,.form-grid select:focus{border-color:var(--green)}
+.file-label{display:grid;gap:8px;color:var(--muted);font-size:12px}.file-label input{padding:9px}.file-preview img{width:80px;height:80px;object-fit:cover;border-radius:9px;background:#fff}
+.form-actions{margin-top:3px}.hidden{display:none!important}
+.match-line{display:flex;align-items:center;justify-content:space-between;gap:12px}.match-team{flex:1;text-align:center;font-weight:bold}.match-team small{display:block;color:var(--muted);font-weight:normal;margin-top:5px}.match-score{font-size:20px;color:var(--green2);white-space:nowrap}.match-info{color:var(--muted);font-size:11px;margin-top:12px;text-align:center}.status{display:inline-block;padding:5px 8px;border-radius:20px;background:#1b3c30;color:var(--green2);font-size:10px}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px}table{width:100%;border-collapse:collapse;min-width:530px;background:var(--panel)}th,td{padding:12px 10px;text-align:center;border-bottom:1px solid var(--line);font-size:13px}th{color:var(--green2);background:#142b43}td:nth-child(2){text-align:left}.hint,.empty{color:var(--muted);font-size:12px;line-height:1.6}.login-card{max-width:440px;margin:30px auto;padding:24px}.login-card h2{margin:10px 0}.login-card p{color:var(--muted);font-size:13px;line-height:1.5}.form-message{min-height:18px}
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:10;display:flex;justify-content:space-around;background:#091a2b;border-top:1px solid var(--line);padding:8px 3px max(8px,env(safe-area-inset-bottom))}
+.bottom-nav button{border:0;background:none;color:var(--muted);font-size:18px;display:grid;gap:3px;justify-items:center;min-width:0;flex:1}.bottom-nav button span{font-size:9px}.bottom-nav button.active{color:var(--green)}
+.toast{position:fixed;left:50%;bottom:92px;transform:translate(-50%,20px);background:#173b2a;color:#eaffef;padding:12px 16px;border:1px solid #2e8050;border-radius:10px;opacity:0;pointer-events:none;transition:.2s;z-index:30;max-width:90%;font-size:13px}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:650px){.stats-grid,.admin-summary{grid-template-columns:repeat(2,1fr)}.club-grid,.player-grid{grid-template-columns:1fr}.topbar h1{font-size:12px}.connection-badge{font-size:9px}.container{padding:15px 12px 28px}.hero{padding:24px 17px}.page-heading h2{font-size:24px}.bottom-nav button span{font-size:8px}}
+
+textarea{width:100%;padding:13px;border-radius:9px;border:1px solid #36516a;background:#091a2b;color:var(--text);font:inherit;resize:vertical} .news-card h3{color:var(--green2);margin:0 0 8px}.news-card p{white-space:pre-wrap;line-height:1.55;color:#d5e0e9;font-size:13px}.news-card img{width:100%;max-height:240px;object-fit:cover;border-radius:10px;margin:8px 0}.subtle{font-size:11px;color:var(--muted)} .stage-tag{display:inline-block;margin:5px;padding:4px 8px;border-radius:20px;background:#1b3c30;color:var(--green2);font-size:10px}
+@media(max-width:650px){.bottom-nav{overflow-x:auto;justify-content:flex-start}.bottom-nav button{min-width:57px}.bottom-nav button span{font-size:8px}}
+
+
+/* Identité visuelle officielle UAKF — emplacement logo temporaire */
+.topbar{min-height:76px;backdrop-filter:blur(12px)}
+.logo-slot{width:48px;height:48px;flex:0 0 48px;border:2px solid var(--green);border-radius:14px;display:grid;place-items:center;background:linear-gradient(145deg,#153a32,#0b1d2b);box-shadow:0 0 18px rgba(57,231,95,.13)}
+.logo-slot span{font-size:12px;font-weight:900;letter-spacing:1px;color:var(--green2)}
+.brand-copy{min-width:0}.brand-copy h1{line-height:1.3}
+.official-hero{position:relative;display:grid;grid-template-columns:170px 1fr;align-items:center;gap:28px;min-height:290px;padding:34px clamp(20px,5vw,54px);overflow:hidden;background:radial-gradient(circle at 12% 50%,rgba(57,231,95,.16),transparent 35%),linear-gradient(125deg,#0b1c2d 0%,#102b35 52%,#123d31 100%);border:1px solid #286247;box-shadow:0 18px 45px rgba(0,0,0,.18)}
+.official-hero:after{content:"";position:absolute;width:300px;height:300px;border:1px solid rgba(164,255,178,.12);border-radius:50%;right:-110px;top:-120px;box-shadow:0 0 0 24px rgba(164,255,178,.025),0 0 0 50px rgba(164,255,178,.02);pointer-events:none}
+.hero-emblem{width:148px;height:174px;margin:auto;clip-path:polygon(8% 0,92% 0,100% 12%,91% 78%,50% 100%,9% 78%,0 12%);background:linear-gradient(160deg,#b9ffd0,#39e75f 48%,#14743a);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#062012;filter:drop-shadow(0 8px 18px rgba(0,0,0,.25))}
+.emblem-top{font-size:24px;font-weight:1000;letter-spacing:2px}.emblem-ball{font-size:48px;line-height:1.3}.emblem-bottom{font-size:9px;font-weight:900;letter-spacing:2px}
+.hero-copy{position:relative;z-index:1}.official-hero h2{font-size:clamp(27px,5.5vw,44px);line-height:1.12;margin:13px 0}.official-hero h2 span{color:var(--green2)}.official-hero p{max-width:620px}
+.hero-footnote{grid-column:1/-1;border-top:1px solid rgba(164,255,178,.18);padding-top:13px;color:#a8c5b5;font-size:9px;letter-spacing:2px;text-align:center}
+@media(max-width:650px){.topbar{gap:9px;padding-top:12px;padding-bottom:12px}.logo-slot{width:42px;height:42px;flex-basis:42px}.brand-copy h1{font-size:10px;letter-spacing:.2px}.brand-copy p{font-size:8px;letter-spacing:.5px}.official-hero{grid-template-columns:1fr;gap:17px;padding:23px 18px;text-align:center}.hero-emblem{width:104px;height:122px}.emblem-top{font-size:19px}.emblem-ball{font-size:34px}.emblem-bottom{font-size:7px}.official-hero .hero-actions{justify-content:center}.official-hero p{margin-left:auto;margin-right:auto}.hero-footnote{font-size:8px;line-height:1.5}}
+
+/* Menu Plus et navigation mobile à quatre entrées */
+.more-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.more-card{display:grid;grid-template-columns:42px 1fr;grid-template-rows:auto auto;align-items:center;text-align:left;gap:3px 12px;padding:16px;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:14px;min-height:82px}
+.more-card>span{grid-row:1/3;font-size:27px;text-align:center}
+.more-card strong{font-size:14px;color:var(--green2)}
+.more-card small{font-size:11px;color:var(--muted)}
+.more-card:active{border-color:var(--green);transform:scale(.99)}
+.bottom-nav{justify-content:space-around;overflow:visible}
+.bottom-nav button{min-width:0;flex:1}
+@media(max-width:650px){.more-grid{grid-template-columns:1fr}.bottom-nav button{min-width:0}.bottom-nav button span{font-size:10px}}

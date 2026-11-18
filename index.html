@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071321">
+  <meta name="description" content="Plateforme officielle UAKF Champions League">
+  <title>UAKF CHAMPIONS LEAGUE OFFICIAL</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand-mark logo-slot" aria-label="Emplacement du logo officiel UAKF"><span>UAKF</span></div>
+  <div class="brand-copy">
+    <h1>UAKF CHAMPIONS LEAGUE OFFICIAL</h1>
+    <p>UNION ASSOCIATION KASAÏENNE DE FOOTBALL</p>
+  </div>
+  <span id="connectionBadge" class="connection-badge">Connexion…</span>
+</header>
+
+<main class="container">
+  <section id="home" class="page active">
+    <div class="hero official-hero">
+      <div class="hero-emblem" aria-label="Emplacement réservé au logo officiel UAKF">
+        <span class="emblem-top">UAKF</span><span class="emblem-ball">⚽</span><span class="emblem-bottom">OFFICIAL</span>
+      </div>
+      <div class="hero-copy">
+        <span class="eyebrow">PLATEFORME OFFICIELLE • SAISON EN COURS</span>
+        <h2>Bienvenue dans la<br><span>UAKF Champions League</span></h2>
+        <p>La plateforme officielle de suivi du championnat : clubs, joueurs, calendrier, résultats, classements et actualités.</p>
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="showPage('matches')">Accéder au championnat</button>
+          <button class="btn-secondary" onclick="showPage('clubs')">Voir les clubs</button>
+        </div>
+      </div>
+      <div class="hero-footnote">UNION ASSOCIATION KASAÏENNE DE FOOTBALL</div>
+    </div>
+    <h2 class="section-title">Tableau de bord</h2>
+    <div class="stats-grid">
+      <article class="stat-card"><span>🏟️ Clubs</span><strong id="clubCount">0</strong></article>
+      <article class="stat-card"><span>⚽ Joueurs</span><strong id="playerCount">0</strong></article>
+      <article class="stat-card"><span>📅 Matchs</span><strong id="matchCount">0</strong></article>
+      <article class="stat-card"><span>🏆 Résultats</span><strong id="resultCount">0</strong></article>
+    </div>
+    <div class="section-heading"><h2 class="section-title">Actualités UAKF</h2><button class="text-button" onclick="showPage('news')">Toutes les actualités →</button></div>
+    <div id="homeNewsList" class="stack"><p class="empty">Chargement des actualités…</p></div>
+    <div class="section-heading"><h2 class="section-title">Dernières rencontres</h2><button class="text-button" onclick="showPage('matches')">Tout voir →</button></div>
+    <div id="homeMatches" class="stack"><p class="empty">Chargement des rencontres…</p></div>
+  </section>
+
+  <section id="clubs" class="page">
+    <div class="page-heading"><div><span class="eyebrow">ÉQUIPES PARTICIPANTES</span><h2>Les clubs</h2></div></div>
+    <div id="clubList" class="club-grid"><p class="empty">Chargement…</p></div>
+    <div id="clubAdminForm" class="admin-panel hidden">
+      <h3 id="clubFormTitle">Ajouter un club</h3>
+      <form id="clubForm" class="form-grid">
+        <input id="clubName" placeholder="Nom du club" required maxlength="100">
+        <input id="clubCity" placeholder="Ville ou localité" maxlength="100">
+        <input id="clubManager" placeholder="Nom du responsable" maxlength="100">
+        <label class="file-label">Logo du club <input id="clubLogo" type="file" accept="image/jpeg,image/png,image/webp"></label>
+        <div id="clubLogoPreview" class="file-preview"></div>
+        <div class="form-actions"><button class="btn-primary" type="submit">Enregistrer le club</button><button class="btn-secondary" type="button" onclick="cancelClubEdit()">Annuler</button></div>
+      </form>
+    </div>
+  </section>
+
+  <section id="players" class="page">
+    <div class="page-heading"><div><span class="eyebrow">EFFECTIFS</span><h2>Les joueurs</h2></div></div>
+    <div id="playerList" class="player-grid"><p class="empty">Chargement…</p></div>
+    <div id="playerAdminForm" class="admin-panel hidden">
+      <h3 id="playerFormTitle">Ajouter un joueur</h3>
+      <form id="playerForm" class="form-grid">
+        <input id="playerName" placeholder="Nom complet" required maxlength="120">
+        <input id="playerNumber" type="number" min="0" max="99" placeholder="Numéro de maillot">
+        <select id="playerClub" required><option value="">Choisir un club</option></select>
+        <input id="playerPosition" placeholder="Poste (ex. Attaquant)" maxlength="60">
+        <label class="file-label">Photo du joueur <input id="playerPhoto" type="file" accept="image/jpeg,image/png,image/webp"></label>
+        <div id="playerPhotoPreview" class="file-preview"></div>
+        <div class="form-actions"><button class="btn-primary" type="submit">Enregistrer le joueur</button><button class="btn-secondary" type="button" onclick="cancelPlayerEdit()">Annuler</button></div>
+      </form>
+    </div>
+  </section>
+
+  <section id="matches" class="page">
+    <div class="page-heading"><div><span class="eyebrow">CALENDRIER OFFICIEL</span><h2>Matchs et résultats</h2></div></div>
+    <div id="matchList" class="stack"><p class="empty">Chargement…</p></div>
+    <div id="matchAdminForm" class="admin-panel hidden">
+      <h3>Programmer un match</h3>
+      <form id="matchForm" class="form-grid">
+        <select id="teamA" required><option value="">Équipe à domicile</option></select>
+        <select id="teamB" required><option value="">Équipe visiteuse</option></select>
+        <select id="matchStage"><option value="group">Phase de groupes</option><option value="round_of_16">Huitièmes de finale</option><option value="quarter_final">Quarts de finale</option><option value="semi_final">Demi-finales</option><option value="third_place">Match pour la 3e place</option><option value="final">Finale</option></select>
+        <input type="datetime-local" id="matchDate" required>
+        <input id="matchPlace" placeholder="Lieu du match" maxlength="150">
+        <div class="form-actions"><button class="btn-primary" type="submit">Programmer le match</button></div>
+      </form>
+    </div>
+    <div id="scorerAdminForm" class="admin-panel hidden">
+      <h3>⚽ Enregistrer les buteurs</h3>
+      <p class="hint">Choisissez le match, le joueur et le nombre total de buts marqués par ce joueur dans ce match. Si vous modifiez une saisie, indiquez le nouveau total pour ce match.</p>
+      <form id="scorerForm" class="form-grid">
+        <select id="scorerMatch" required><option value="">Choisir le match</option></select>
+        <select id="scorerPlayer" required><option value="">Choisir le buteur</option></select>
+        <input id="scorerGoals" type="number" min="1" max="99" value="1" required placeholder="Nombre de buts">
+        <div class="form-actions"><button class="btn-primary" type="submit">Enregistrer le buteur</button></div>
+      </form>
+    </div>
+    <div id="disciplineAdminForm" class="admin-panel hidden">
+      <h3>🟨 Enregistrer une sanction</h3>
+      <form id="disciplineForm" class="form-grid">
+        <select id="disciplineMatch" required><option value="">Choisir le match</option></select>
+        <select id="disciplinePlayer" required><option value="">Choisir le joueur</option></select>
+        <select id="disciplineCard" required><option value="yellow">Carton jaune</option><option value="red">Carton rouge</option></select>
+        <input id="disciplineNote" placeholder="Motif (facultatif)" maxlength="200">
+        <div class="form-actions"><button class="btn-primary" type="submit">Enregistrer la sanction</button></div>
+      </form>
+    </div>
+  </section>
+
+  <section id="scorers" class="page">
+    <div class="page-heading"><div><span class="eyebrow">STATISTIQUES INDIVIDUELLES</span><h2>Meilleurs buteurs</h2></div></div>
+    <div class="table-wrap"><table><thead><tr><th>#</th><th>Joueur</th><th>Club</th><th>Buts</th></tr></thead><tbody id="scorerRankingList"><tr><td colspan="4">Chargement…</td></tr></tbody></table></div>
+    <p class="hint">Classement calculé automatiquement à partir des buts cumulés sur tous les matchs.</p>
+    <div id="scorerEntryAdminList" class="stack admin-panel hidden"></div>
+  </section>
+
+  <section id="ranking" class="page">
+    <div class="page-heading"><div><span class="eyebrow">SAISON EN COURS</span><h2>Classement général</h2></div></div>
+    <div class="table-wrap"><table><thead><tr><th>#</th><th>Club</th><th>MJ</th><th>BP</th><th>BC</th><th>Diff.</th><th>Pts</th></tr></thead><tbody id="rankingList"><tr><td colspan="7">Chargement…</td></tr></tbody></table></div>
+    <p class="hint">Barème : victoire 3 points, match nul 1 point, défaite 0 point.</p>
+  </section>
+
+  <section id="clubStats" class="page">
+    <div class="page-heading"><div><span class="eyebrow">PERFORMANCES COLLECTIVES</span><h2>Statistiques des clubs</h2></div></div>
+    <div class="table-wrap"><table><thead><tr><th>Club</th><th>MJ</th><th>V</th><th>N</th><th>D</th><th>BP</th><th>BC</th><th>Pts</th></tr></thead><tbody id="clubStatsList"><tr><td colspan="8">Chargement…</td></tr></tbody></table></div>
+  </section>
+
+  <section id="discipline" class="page">
+    <div class="page-heading"><div><span class="eyebrow">DISCIPLINE</span><h2>Cartons jaunes et rouges</h2></div></div>
+    <div class="table-wrap"><table><thead><tr><th>Joueur</th><th>Club</th><th>Jaunes</th><th>Rouges</th></tr></thead><tbody id="disciplineList"><tr><td colspan="4">Chargement…</td></tr></tbody></table></div>
+    <h3 class="section-title">Dernières sanctions</h3><div id="disciplineDetails" class="stack"></div>
+  </section>
+
+  <section id="news" class="page">
+    <div class="page-heading"><div><span class="eyebrow">COMMUNICATION OFFICIELLE</span><h2>Actualités du championnat</h2></div></div>
+    <div id="newsList" class="stack"><p class="empty">Chargement…</p></div>
+    <div id="newsAdminForm" class="admin-panel hidden"><h3 id="newsFormTitle">Publier une actualité</h3>
+      <form id="newsForm" class="form-grid"><input id="newsTitle" placeholder="Titre de l'actualité" required maxlength="180"><textarea id="newsContent" placeholder="Contenu de l'actualité" required rows="5"></textarea><label class="file-label">Photo de l’actualité (facultatif) — JPG, PNG ou WEBP, 2 Mo maximum <input id="newsImageFile" type="file" accept="image/jpeg,image/png,image/webp"></label><div id="newsImagePreview" class="file-preview"></div><label><input id="newsPublished" type="checkbox" checked> Publier immédiatement</label><div class="form-actions"><button class="btn-primary" type="submit">Enregistrer</button><button class="btn-secondary" type="button" onclick="resetNewsForm()">Annuler</button></div></form>
+    </div>
+  </section>
+
+  <section id="finals" class="page">
+    <div class="page-heading"><div><span class="eyebrow">ÉLIMINATION DIRECTE</span><h2>Phases finales</h2></div></div>
+    <p class="hint">Les matchs des phases finales sont programmés depuis l'espace Matchs en choisissant leur étape. Les résultats et scores restent gérés comme les autres rencontres.</p>
+    <div id="finalsList" class="stack"></div>
+  </section>
+
+
+  <section id="more" class="page">
+    <div class="page-heading"><div><span class="eyebrow">EXPLORER LA COMPÉTITION</span><h2>Plus de rubriques</h2></div></div>
+    <div class="more-grid">
+      <button class="more-card" onclick="showPage('clubs')"><span>🏟️</span><strong>Clubs</strong><small>Équipes participantes</small></button>
+      <button class="more-card" onclick="showPage('players')"><span>👥</span><strong>Joueurs</strong><small>Effectifs des clubs</small></button>
+      <button class="more-card" onclick="showPage('scorers')"><span>🥇</span><strong>Meilleurs buteurs</strong><small>Classement des buteurs</small></button>
+      <button class="more-card" onclick="showPage('clubStats')"><span>📊</span><strong>Stats des clubs</strong><small>Performances collectives</small></button>
+      <button class="more-card" onclick="showPage('discipline')"><span>🟨</span><strong>Cartons</strong><small>Discipline et sanctions</small></button>
+      <button class="more-card" onclick="showPage('news')"><span>📰</span><strong>Actualités</strong><small>Informations officielles</small></button>
+      <button class="more-card" onclick="showPage('finals')"><span>🏆</span><strong>Phases finales</strong><small>Élimination directe</small></button>
+      <button class="more-card" onclick="showPage('admin')"><span>⚙️</span><strong>Administration</strong><small>Accès réservé</small></button>
+    </div>
+  </section>
+
+  <section id="adminLogin" class="page">
+    <div class="login-card">
+      <span class="eyebrow">ESPACE SÉCURISÉ</span><h2>Administration UAKF</h2>
+      <p>Connectez-vous avec le compte administrateur officiel.</p>
+      <form id="adminLoginForm" class="form-grid">
+        <input type="email" id="adminEmail" placeholder="Adresse e-mail" required autocomplete="username">
+        <input type="password" id="adminPassword" placeholder="Mot de passe" required autocomplete="current-password">
+        <button type="submit" class="btn-primary">Se connecter</button>
+      </form>
+      <p id="loginMessage" class="form-message" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section id="admin" class="page">
+    <div class="page-heading"><div><span class="eyebrow">CONTRÔLE DE LA COMPÉTITION</span><h2>Administration</h2></div><button class="btn-secondary" onclick="logoutAdmin()">Déconnexion</button></div>
+    <div class="admin-summary">
+      <article class="stat-card"><span>Clubs</span><strong id="adminClubs">0</strong></article>
+      <article class="stat-card"><span>Joueurs</span><strong id="adminPlayers">0</strong></article>
+      <article class="stat-card"><span>Matchs</span><strong id="adminMatches">0</strong></article>
+    </div>
+    <div class="admin-shortcuts">
+      <button class="btn-primary" onclick="showPage('clubs')">+ Gérer les clubs / logos</button>
+      <button class="btn-primary" onclick="showPage('players')">+ Gérer les joueurs / photos</button>
+      <button class="btn-primary" onclick="showPage('matches')">+ Gérer les matchs / scores / buteurs</button>
+      <button class="btn-primary" onclick="showPage('scorers')">🏅 Voir le classement des buteurs</button>
+      <button class="btn-primary" onclick="showPage('discipline')">🟨 Gérer les cartons</button>
+      <button class="btn-primary" onclick="showPage('news')">📰 Gérer les actualités</button>
+      <button class="btn-primary" onclick="showPage('finals')">🏆 Gérer les phases finales</button>
+    </div>
+    <p class="hint">Les boutons de modification et de suppression ne sont visibles que pour l’administrateur.</p>
+  </section>
+</main>
+
+<nav class="bottom-nav">
+  <button class="active" data-page="home" onclick="showPage('home',this)">🏠<span>Accueil</span></button>
+  <button data-page="matches" onclick="showPage('matches',this)">⚽<span>Matchs</span></button>
+  <button data-page="ranking" onclick="showPage('ranking',this)">🏆<span>Classement</span></button>
+  <button data-page="more" onclick="showPage('more',this)">☰<span>Plus</span></button>
+</nav>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+</body>
+</html>
