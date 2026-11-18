@@ -1,0 +1,13 @@
+{
+  "background_color": "rgb(7, 19, 33)",
+  "description": "Plateforme officielle UAKF Champions League : clubs, joueurs, matchs, classements et actualités.",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "UAKF OFFICIAL",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "UAKF",
+  "start_url": "/",
+  "theme_color": "#39ff14",
+  "id": "/UAKF-CHAMPIONS-LEAGUE-OFFICIAL/"
+}
