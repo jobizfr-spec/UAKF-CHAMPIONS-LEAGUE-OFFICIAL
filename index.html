@@ -215,5 +215,14 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="script.js"></script>
+  <script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register(
+      "/UAKF-CHAMPIONS-LEAGUE-OFFICIAL/pwabuilder-sw.js"
+    ).catch(error => console.error("Service Worker :", error));
+  });
+}
+  </script>
 </body>
 </html>
