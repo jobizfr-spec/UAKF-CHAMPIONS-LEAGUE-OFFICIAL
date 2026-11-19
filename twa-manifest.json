@@ -1,0 +1,30 @@
+{
+"packageId": "io.github.jobizfr_spec.twa",
+"host": "jobizfr-spec.github.io",
+"name": "UAKF OFFICIAL",
+"launcherName": "UAKF",
+"display": "standalone",
+"themeColor": "#39FF14",
+"themeColorDark": "#39FF14",
+"navigationColor": "#39FF14",
+"navigationColorDark": "#39FF14",
+"navigationDividerColor": "#39FF14",
+"navigationDividerColorDark": "#39FF14",
+"backgroundColor": "#071321",
+"enableNotifications": false,
+"startUrl": "/UAKF-CHAMPIONS-LEAGUE-OFFICIAL/",
+"iconUrl": "https://jobizfr-spec.github.io/UAKF-CHAMPIONS-LEAGUE-OFFICIAL/launchericon-512x512.png",
+"splashScreenFadeOutDuration": 300,
+"signingKey": {
+"path": "./android.keystore",
+"alias": "my-key-alias"
+},
+"appVersion": "1.0.0",
+"appVersionCode": 1,
+"webManifestUrl": "https://jobizfr-spec.github.io/UAKF-CHAMPIONS-LEAGUE-OFFICIAL/manifest.json",
+"fallbackType": "customtabs",
+"enableSiteSettingsShortcut": true,
+"isChromeOSOnly": false,
+"isMetaQuest": false,
+"orientation": "any"
+}
